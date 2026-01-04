@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="asset/img/logo.png" href="asset/img/logo.png">
+    <title>Yahya Studio | Luxury Photography & Videography</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- User Interface -->
+    <div id="user-interface">
+        <!-- Header -->
+        <header class="header" id="header">
+            <div class="container header-content">
+                <a href="/" class="logo">
+                    <img src="asset/img/logo.png" alt="Yahya Studio Logo" class="logo-icon">
+                    <span>Yahya Studio</span>
+                </a>
+
+                <nav>
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                        <li><a href="#booking-flow" class="nav-link">Book Now</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Search Bar Container -->
+                <div class="search-container">
+                    <button class="search-toggle" id="search-toggle">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="search-box" id="search-box">
+                        <input type="text" class="search-input" id="search-input"
+                            placeholder="Search services, portfolio, packages...">
+                        <button class="search-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Search Results Modal -->
+        <div class="search-modal" id="search-modal">
+            <div class="search-modal-content">
+                <div class="search-modal-header">
+                    <h3>Search Results</h3>
+                    <button class="search-modal-close" id="search-modal-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="search-results" id="search-results">
+                    <!-- Search results will appear here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg"></div>
+            <div class="container hero-content">
+                <h1>CAPTURE MOMENTS. CREATE STORIES.</h1>
+                <p>Professional Photography & Videography Services for weddings, events, products, and cinematic
+                    storytelling.</p>
+                <div class="hero-buttons">
+                    <a href="#booking-flow" class="btn-primary"><i class="fas fa-calendar-alt"></i> Book Now</a>
+                    <a href="https://wa.me/62895704403389" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> Chat Admin</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-search="wedding photography bridal marriage ceremony">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Wedding Photography" class="service-image">
+                        <div class="service-content">
+                            <h3>Wedding Photography</h3>
+                            <p>Capture your special day with timeless elegance and emotion through our professional
+                                wedding photography.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-search="event photography corporate party celebration">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Event Photography" class="service-image">
+                        <div class="service-content">
+                            <h3>Event Photography</h3>
+                            <p>Professional coverage for corporate events, parties, and special occasions with a
+                                creative eye.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-search="product photography commercial brand advertising">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Product Photography" class="service-image">
+                        <div class="service-content">
+                            <h3>Product Photography</h3>
+                            <p>Showcase your products in the best light with stunning commercial photography for brands.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-search="cinematic video film storytelling motion">
+                        <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Cinematic Video" class="service-image">
+                        <div class="service-content">
+                            <h3>Cinematic Video</h3>
+                            <p>Tell your story through motion with our professional videography and cinematic editing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="section" id="portfolio">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Portfolio</h2>
+                </div>
+
+                <!-- Portfolio Filters -->
+                <div class="filter-controls" id="portfolio-filters">
+                    <button class="filter-btn active" id="filter-all">All</button>
+                    <button class="filter-btn" id="filter-photo">Photos</button>
+                    <button class="filter-btn" id="filter-video">Videos</button>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-search="wedding stories love marriage" data-type="video">
+                        <video class="portfolio-img" id="portfolio-video-1">
+                            <source src="asset/vid/v1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="portfolio-overlay">
+                            <h3>Wedding Stories</h3>
+                            <p>Emotional moments captured forever</p>
+                        </div>
+                        <div class="play-icon" id="play-icon-1" onclick="toggleVideo(document.getElementById('portfolio-video-1'), this);">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-search="corporate events business" data-type="photo">
+                        <img src="asset/img/WhatsApp Image 2026-01-03 at 22.28.47.jpeg"
+                            alt="Event Portfolio" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Product</h3>
+                            <p>product model</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-search="product showcase commercial" data-type="photo">
+                         <video class="portfolio-img" id="portfolio-video-2">
+                            <source src="asset/vid/lu mah enak.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="portfolio-overlay">
+                            <h3>Product Showcase</h3>
+                            <p>Commercial photography</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-search="cinematic films video motion" data-type="photo">
+                        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Cinematic Portfolio" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Cinematic Films</h3>
+                            <p>Storytelling through motion</p>
+                        </div>
+                        <div class="play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-search="portrait sessions people" data-type="photo">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Portrait Portfolio" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Portrait Sessions</h3>
+                            <p>Elegant personal portraits</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-search="landscape nature scenic" data-type="photo">
+                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Landscape Portfolio" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Landscape & Nature</h3>
+                            <p>Breathtaking scenic photography</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="section" id="pricing">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Pricing Packages</h2>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card" data-search="basic package affordable cheap">
+                        <div class="pricing-header">
+                            <h3>Basic</h3>
+                            <div class="pricing-price">$300</div>
+                            <div class="pricing-period">per session</div>
+                        </div>
+
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 2 hours of shooting</li>
+                            <li><i class="fas fa-check"></i> 50 edited photos</li>
+                            <li><i class="fas fa-check"></i> Online gallery</li>
+                            <li><i class="fas fa-times"></i> Video footage</li>
+                            <li><i class="fas fa-times"></i> Premium editing</li>
+                        </ul>
+
+                        <button class="btn-primary btn-select-package" data-package="Basic">Select Plan</button>
+                    </div>
+
+                    <div class="pricing-card featured" data-search="professional package popular best">
+                        <div class="pricing-badge">MOST POPULAR</div>
+                        <div class="pricing-header">
+                            <h3>Professional</h3>
+                            <div class="pricing-price">$800</div>
+                            <div class="pricing-period">per session</div>
+                        </div>
+
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 4 hours of shooting</li>
+                            <li><i class="fas fa-check"></i> 100+ edited photos</li>
+                            <li><i class="fas fa-check"></i> Online gallery</li>
+                            <li><i class="fas fa-check"></i> 2 min highlight video</li>
+                            <li><i class="fas fa-times"></i> Premium editing</li>
+                        </ul>
+
+                        <button class="btn-primary btn-select-package" data-package="Professional">Select Plan</button>
+                    </div>
+
+                    <div class="pricing-card" data-search="cinematic package premium luxury">
+                        <div class="pricing-header">
+                            <h3>Cinematic</h3>
+                            <div class="pricing-price">$1,499</div>
+                            <div class="pricing-period">per session</div>
+                        </div>
+
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Full day shooting</li>
+                            <li><i class="fas fa-check"></i> 200+ edited photos</li>
+                            <li><i class="fas fa-check"></i> Premium online gallery</li>
+                            <li><i class="fas fa-check"></i> 5 min cinematic film</li>
+                            <li><i class="fas fa-check"></i> Premium editing & effects</li>
+                        </ul>
+
+                        <button class="btn-primary btn-select-package" data-package="Cinematic">Select Plan</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section" id="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Client Testimonials</h2>
+                </div>
+
+                <div class="testimonials-slider">
+                    <div class="testimonial-slide active" data-search="review feedback wedding">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Sarah Johnson" class="client-image">
+                        <div class="client-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="client-feedback">"Lumière Studio captured our wedding day perfectly. The photos are
+                            breathtaking and tell our love story beautifully. Professional, creative, and worth every
+                            penny!"</p>
+                        <h4 class="client-name">Sarah Johnson</h4>
+                        <p class="client-role">Wedding Client</p>
+                    </div>
+
+                    <div class="testimonial-slide" data-search="corporate event review">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Michael Chen" class="client-image">
+                        <div class="client-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="client-feedback">"The corporate event coverage was exceptional. They captured the
+                            essence of our brand and delivered stunning visuals for our marketing campaign."</p>
+                        <h4 class="client-name">Michael Chen</h4>
+                        <p class="client-role">Corporate Client</p>
+                    </div>
+
+                    <div class="testimonial-slide" data-search="product video review">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Jessica Williams" class="client-image">
+                        <div class="client-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="client-feedback">"The cinematic video they created for our product launch was
+                            absolutely stunning. It perfectly conveyed our brand story and received rave reviews from
+                            our customers."</p>
+                        <h4 class="client-name">Jessica Williams</h4>
+                        <p class="client-role">Product Client</p>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-dot active" data-slide="0"></button>
+                        <button class="slider-dot" data-slide="1"></button>
+                        <button class="slider-dot" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta">
+                    <h2>Ready to Capture Your Best Moment?</h2>
+                    <p>Contact us today to discuss your photography or videography project. Let's create something
+                        beautiful together.</p>
+                    <div class="hero-buttons">
+                        <a href="#booking-flow" class="btn-primary"><i class="fas fa-calendar-alt"></i> Book Now</a>
+                        <button class="btn-outline" id="open-chat-btn-2"><i class="fas fa-comment"></i> Chat
+                            Admin</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Flow Section -->
+        <section class="booking-flow" id="booking-flow">
+            <div class="container">
+                <div class="booking-steps">
+                    <div class="step active" id="step-1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Select Package</div>
+                    </div>
+                    <div class="step" id="step-2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Your Details</div>
+                    </div>
+                    <div class="step" id="step-3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Date & Time</div>
+                    </div>
+                    <div class="step" id="step-4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Confirmation</div>
+                    </div>
+                </div>
+
+               <div class="booking-form-container">
+    <form id="booking-form">
+        <!-- Step 1: Package Selection -->
+        <div class="booking-form active" id="form-step-1">
+            <h3 class="form-title">Select Your Package</h3>
+
+            <div class="package-options">
+                <div class="package-option" data-package="basic">
+                    <h4>Basic</h4>
+                    <div class="package-price">$300</div>
+                    <p>2 hours of shooting</p>
+                    <p>50 edited photos</p>
+                    <p>Online gallery</p>
+                </div>
+
+                <div class="package-option selected" data-package="professional">
+                    <h4>Professional</h4>
+                    <div class="package-price">$800</div>
+                    <p>4 hours of shooting</p>
+                    <p>100+ edited photos</p>
+                    <p>2 min highlight video</p>
+                </div>
+
+                <div class="package-option" data-package="cinematic">
+                    <h4>Cinematic</h4>
+                    <div class="package-price">$1,499</div>
+                    <p>Full day shooting</p>
+                    <p>200+ edited photos</p>
+                    <p>5 min cinematic film</p>
+                </div>
+            </div>
+
+            <div class="booking-actions">
+                <button type="button" class="btn-outline" disabled>Previous</button>
+                <button type="button" class="btn-primary" id="next-to-step-2">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Client Details -->
+        <div class="booking-form" id="form-step-2">
+            <h3 class="form-title">Your Details</h3>
+
+            <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="client-name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="client-email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="client-phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Event Type</label>
+                <select class="form-control" id="event-type" required>
+                    <option value="">Select event type</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="corporate">Corporate Event</option>
+                    <option value="portrait">Portrait Session</option>
+                    <option value="product">Product Photography</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="booking-actions">
+                <button type="button" class="btn-outline" id="back-to-step-1">Previous</button>
+                <button type="button" class="btn-primary" id="next-to-step-3">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Date & Time -->
+        <div class="booking-form" id="form-step-3">
+            <h3 class="form-title">Select Date & Time</h3>
+
+            <div class="form-group">
+                <label class="form-label">Preferred Date</label>
+                <input type="date" class="form-control" id="event-date" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Preferred Time</label>
+                <select class="form-control" id="event-time" required>
+                    <option value="">Select time</option>
+                    <option value="morning">Morning (9AM - 12PM)</option>
+                    <option value="afternoon">Afternoon (1PM - 5PM)</option>
+                    <option value="evening">Evening (6PM - 9PM)</option>
+                    <option value="full-day">Full Day</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Event Location</label>
+                <input type="text" class="form-control" id="event-location" placeholder="Enter event location" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Additional Notes (Optional)</label>
+                <textarea class="form-control" id="event-notes" rows="4" placeholder="Any special requests or details about your event"></textarea>
+            </div>
+
+            <div class="booking-actions">
+                <button type="button" class="btn-outline" id="back-to-step-2">Previous</button>
+                <button type="button" class="btn-primary" id="next-to-step-4">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Payment (NEW STEP) -->
+        <div class="booking-form" id="form-step-4">
+            <h3 class="form-title">Payment Confirmation</h3>
+            <div class="payment-alert">
+                <i class="fas fa-info-circle"></i>
+                <p>Silahkan lakukan konfirmasi pembayaran terlebih dahulu untuk melanjutkan booking Anda.</p>
+            </div>
+
+            <div class="payment-summary">
+                <h4>Booking Summary</h4>
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>Package</span>
+                        <span id="payment-package">Professional - $800</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Total Amount</span>
+                        <span id="payment-total">$800</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Amount to Pay</span>
+                        <span id="payment-amount">$800</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-methods">
+                <h4>Payment Methods</h4>
+                
+                <div class="payment-option selected" data-method="bank">
+                    <div class="payment-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="payment-info">
+                        <h5>Bank Transfer</h5>
+                        <p>Ttransfer to our bank account</p>
+                    </div>
+                    <div class="payment-radio">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+
+                <div class="payment-option" data-method="qris">
+                    <div class="payment-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="payment-info">
+                        <h5>QRIS</h5>
+                        <p>Scan the QR code for payment</p>
+                    </div>
+                    <div class="payment-radio">
+                        <i class="far fa-circle"></i>
+                    </div>
+                </div>
+
+                <div class="payment-option" data-method="dana">
+                    <div class="payment-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="payment-info">
+                        <h5>DANA</h5>
+                        <p>Pay via DANA app</p>
+                    </div>
+                    <div class="payment-radio">
+                        <i class="far fa-circle"></i>
+                    </div>
+                </div>
+
+                <div class="payment-option" data-method="gopay">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="payment-info">
+                        <h5>GoPay</h5>
+                        <p>Pay via GoPay</p>
+                    </div>
+                    <div class="payment-radio">
+                        <i class="far fa-circle"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Instructions (will be shown based on selected method) -->
+            <div class="payment-instructions active" id="bank-instructions">
+                <h5>Bank Transfer Instructions</h5>
+                <div class="bank-details">
+                    <div class="bank-item">
+                        <span>Bank Name:</span>
+                        <strong>Mandiri</strong>
+                    </div>
+                    <div class="bank-item">
+                        <span>Account Number:</span>
+                        <strong>1234 5678 9012</strong>
+                    </div>
+                    <div class="bank-item">
+                        <span>Account Name:</span>
+                        <strong>YAHYA STUDIO PHOTOGRAPHY</strong>
+                    </div>
+                    <div class="bank-item">
+                        <span>Transfer Amount:</span>
+                        <strong id="bank-amount">$800</strong>
+                    </div>
+                </div>
+                <p class="note">After transfer, screenshot the proof of transfer and send it to WhatsApp Admin: +62 895-7044-03389</p>
+            </div>
+
+            <div class="payment-instructions" id="qris-instructions">
+                <h5>QRIS Payment</h5>
+                <div class="qris-container">
+                    <div class="qris-code">
+                        <!-- QR Code Placeholder -->
+                        <div class="qris-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <p>Scan QR Code with your e-wallet or mobile banking app</p>
+                        </div>
+                    </div>
+                    <div class="qris-amount">
+                        <span>Amount:</span>
+                        <strong id="qris-amount">$800</strong>
+                    </div>
+                </div>
+                <p class="note">Scan the QR code above to make a payment.</p>
+            </div>
+
+            <div class="payment-instructions" id="dana-instructions">
+                <h5>DANA Payment</h5>
+                <div class="ewallet-details">
+                    <div class="ewallet-item">
+                        <span>DANA Number:</span>
+                        <strong>+62 895-7044-03389</strong>
+                    </div>
+                    <div class="ewallet-item">
+                        <span>Account Name:</span>
+                        <strong>YAHYA STUDIO</strong>
+                    </div>
+                    <div class="ewallet-item">
+                        <span>Amount:</span>
+                        <strong id="dana-amount">$800</strong>
+                    </div>
+                </div>
+                <p class="note">Transfer to the DANA number above and send the proof of transfer to WhatsApp Admin</p>
+            </div>
+
+            <div class="payment-instructions" id="gopay-instructions">
+                <h5>GoPay Payment</h5>
+                <div class="ewallet-details">
+                    <div class="ewallet-item">
+                        <span>GoPay Number:</span>
+                        <strong>62 895-7044-03389</strong>
+                    </div>
+                    <div class="ewallet-item">
+                        <span>Account Name:</span>
+                        <strong>YAHYA STUDIO</strong>
+                    </div>
+                    <div class="ewallet-item">
+                        <span>Amount:</span>
+                        <strong id="gopay-amount">$800</strong>
+                    </div>
+                </div>
+                <p class="note">Transfer to the GoPay number above and send the proof of transfer to WhatsApp Admin</p>
+            </div>
+
+            <div class="payment-confirmation">
+                <div class="form-group">
+                    <label class="form-label">Upload Payment Proof (Optional)</label>
+                    <input type="file" class="form-control" id="payment-proof" accept="image/*,.pdf">
+                    <small class="form-text">Upload proof of payment (screenshot/photo)</small>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="payment-confirm" required>
+                        <label class="form-check-label" for="payment-confirm">
+                            I have made the payment and will send the proof to the admin
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-actions">
+                <button type="button" class="btn-outline" id="back-to-step-3">Previous</button>
+                <button type="button" class="btn-primary" id="next-to-step-5">Confirm Payment & Continue</button>
+            </div>
+        </div>
+
+        <!-- Step 5: Confirmation (Renamed from Step 4) -->
+        <div class="booking-form" id="form-step-5">
+            <h3 class="form-title">Booking Confirmation</h3>
+            
+            <div class="confirmation-alert">
+                <i class="fas fa-check-circle"></i>
+                <div>
+                    <h4>Booking Submitted Successfully!</h4>
+                    <p>Your order has been sent to the admin. The admin will confirm after receiving the payment.</p>
+                </div>
+            </div>
+
+            <div class="booking-summary">
+                <div class="summary-item">
+                    <h4>Package Selected</h4>
+                    <p id="summary-package">Professional - $800</p>
+                </div>
+
+                <div class="summary-item">
+                    <h4>Your Details</h4>
+                    <p id="summary-name">John Doe</p>
+                    <p id="summary-email">john@example.com</p>
+                    <p id="summary-phone">(123) 456-7890</p>
+                </div>
+
+                <div class="summary-item">
+                    <h4>Date & Time</h4>
+                    <p id="summary-date">October 15, 2023</p>
+                    <p id="summary-time">Afternoon (1PM - 5PM)</p>
+                    <p id="summary-location">New York, NY</p>
+                </div>
+
+                <div class="summary-item">
+                    <h4>Payment Method</h4>
+                    <p id="summary-payment-method">Bank Transfer</p>
+                    <p id="summary-payment-status">Menunggu Konfirmasi Admin</p>
+                </div>
+            </div>
+
+            <div class="confirmation-instructions">
+                <h5>Next Steps:</h5>
+                <ol>
+                    <li>The admin will contact you within 24 hours to confirm payment.</li>
+                    <li>Make sure you have sent the payment proof to the WhatsApp Admin</li>
+                    <li>After payment confirmation, the schedule will be finalized</li>
+                    <li>You will receive a booking confirmation email</li>
+                </ol>
+            </div>
+
+            <div class="booking-actions">
+                <button type="button" class="btn-outline" id="back-to-step-4">Previous</button>
+                <button type="button" class="btn-primary" id="submit-booking">Finish</button>
+            </div>
+        </div>
+    </form>
+</div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <a href="#" class="footer-logo">Yahya Studio</a>
+                        <p class="footer-description">Professional photography and videography services specializing in
+                            weddings, events, and cinematic storytelling.</p>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/yahz_cihuy?igsh=MWtsMHg1bDlxanlxdg==" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#booking-flow">Book Now</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Wedding Photography</a></li>
+                            <li><a href="#">Event Photography</a></li>
+                            <li><a href="#">Product Photography</a></li>
+                            <li><a href="#">Cinematic Video</a></li>
+                            <li><a href="#">Portrait Sessions</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Contact Us</h4>
+                        <ul class="contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> 123 Studio Street, New York</li>
+                            <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
+                            <li><i class="fas fa-envelope"></i> yahzstudi@gmail.com</li>
+                            <li><i class="fab fa-whatsapp"></i> +62895704403389</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>&copy; 2025 yahya Studio. All rights reserved. | Designed with luxury in mind.</p>
+                </div>
+            </div>
+        </footer>
+
+      
+
+        <!-- Live Chat Button -->
+        <div class="chat-button" id="chat-button">
+            <i class="fas fa-comment"></i>
+            <span class="notification-badge" id="chat-notification" style="display: none;">3</span>
+        </div>
+
+        <!-- Live Chat Modal -->
+        <div class="chat-modal" id="chat-modal">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3><span class="online-indicator" id="admin-status-indicator"></span> Live Chat Support</h3>
+                    <button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button>
+                </div>
+
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages will be loaded here -->
+                </div>
+
+                <div class="chat-input-area">
+                    <input type="text" class="chat-input" id="chat-input" placeholder="Type your message...">
+                    <button class="chat-send" id="chat-send"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="admin-login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Admin Login</h3>
+                <button class="modal-close" id="admin-login-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-control" id="admin-username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" id="admin-password" placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <button class="btn-primary" id="admin-login-btn">Login</button>
+                </div>
+                <p class="text-center">Demo credentials: admin / password123</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Access Button (for demo purposes) -->
+    <div class="admin-access-btn" id="admin-access-btn">
+        <button class="btn-icon"><i class="fas fa-user-shield"></i></button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+    <script src="chat.js"></script>
+    <script>
+       
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Lumière Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard">
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <div class="dashboard-sidebar" id="dashboard-sidebar">
+                <div class="sidebar-header">
+                    <div class="admin-logo">
+                        <i class="fas fa-camera"></i>
+                        <span>LUMIÈRE ADMIN</span>
+                    </div>
+                </div>
+                
+                <div class="sidebar-nav">
+                    <a href="#" class="nav-item active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    
+                    <a href="#" class="nav-item" data-section="admin-chat">
+                        <i class="fas fa-comment"></i>
+                        <span>Live Chat</span>
+                        <span class="notification-badge" id="chat-notification-badge">3</span>
+                    </a>
+                    
+                    <a href="#" class="nav-item" data-section="bookings">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Bookings</span>
+                        <span class="notification-badge" id="booking-notification-badge">2</span>
+                    </a>
+                    
+                    <a href="#" class="nav-item" data-section="users">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                    
+                    <a href="#" class="nav-item" data-section="portfolio-admin">
+                        <i class="fas fa-images"></i>
+                        <span>Portfolio</span>
+                    </a>
+                    
+                    <a href="#" class="nav-item" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                    
+                    <a href="#" class="nav-item" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="dashboard-content">
+                <!-- Header -->
+                <div class="dashboard-header">
+                    <div>
+                        <button class="admin-mobile-menu-btn" id="admin-mobile-menu-btn">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <h2 class="dashboard-title" id="dashboard-title">Dashboard</h2>
+                    </div>
+                    
+                    <div class="admin-profile">
+                        <div class="admin-avatar">AJ</div>
+                        <div>
+                            <h4>Admin User</h4>
+                            <p>Administrator</p>
+                        </div>
+                        <span class="notification-badge" id="admin-notification-badge">5</span>
+                    </div>
+                </div>
+                
+                <!-- Dashboard Section -->
+                <div class="dashboard-section active" id="section-dashboard">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-value" id="total-bookings">0</div>
+                            <div class="stat-label">Total Bookings</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <div class="stat-value" id="active-chats">0</div>
+                            <div class="stat-label">Active Chats</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-value" id="online-users">0</div>
+                            <div class="stat-label">Online Users</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="stat-value" id="total-revenue">$0</div>
+                            <div class="stat-label">Revenue</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-header">
+                        <h3>Recent Bookings</h3>
+                        <button class="btn-primary" id="view-all-bookings">View All</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="booking-table" id="recent-bookings-table">
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Service</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-bookings-body">
+                                <tr>
+                                    <td colspan="5" class="text-center">No bookings found</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Admin Live Chat Section -->
+                <div class="dashboard-section" id="section-admin-chat">
+                    <div class="section-header">
+                        <h3>Live Chat Management</h3>
+                        <div>
+                            <span class="online-indicator" id="admin-chat-status"></span>
+                            <span>Online Now: <span id="online-users-count">0</span> users</span>
+                            <button class="btn-primary" id="toggle-online-status" style="margin-left: 20px;">Go Offline</button>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-chat-container">
+                        <!-- User List -->
+                        <div class="user-list" id="admin-user-list">
+                            <div class="user-list-header">
+                                <h3>Active Conversations</h3>
+                                <input type="text" class="form-control" placeholder="Search users..." id="user-search">
+                            </div>
+                            
+                            <div class="user-list-body" id="user-list-body">
+                                <div class="empty-user-list">
+                                    <i class="fas fa-users fa-2x"></i>
+                                    <p>No conversations yet</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Area -->
+                        <div class="chat-area" id="admin-chat-area">
+                            <div class="chat-area-header" id="chat-header-info">
+                                <div class="user-avatar" id="current-user-avatar">U</div>
+                                <div>
+                                    <h3 id="current-user-name">Select a user to chat</h3>
+                                    <p id="current-user-status">Click on a user from the list</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-area-messages" id="admin-chat-messages">
+                                <div class="empty-chat-message">
+                                    <i class="fas fa-comments fa-3x"></i>
+                                    <h4>No conversation selected</h4>
+                                    <p>Select a user from the list to view and respond to messages</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-area-input" id="admin-chat-input" style="display: none;">
+                                <input type="text" class="form-control" id="admin-message-input" placeholder="Type your message...">
+                                <button class="btn-primary" id="admin-send-message">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bookings Section -->
+                <div class="dashboard-section" id="section-bookings">
+                    <div class="section-header">
+                        <h3>Booking Management</h3>
+                        <div>
+                            <button class="btn-outline" id="filter-pending">Pending</button>
+                            <button class="btn-outline" id="filter-confirmed">Confirmed</button>
+                            <button class="btn-outline" id="filter-all">All</button>
+                            <button class="btn-primary" id="add-booking-btn">Add New Booking</button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="booking-table" id="all-bookings-table">
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Package</th>
+                                    <th>Date</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="all-bookings-body">
+                                <tr>
+                                    <td colspan="6" class="text-center">No bookings found</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Settings Section -->
+                <div class="dashboard-section" id="section-settings">
+                    <div class="section-header">
+                        <h3>Settings</h3>
+                    </div>
+                    
+                    <div class="settings-form">
+                        <h4>Admin Profile</h4>
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="admin-full-name" value="Admin User">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="admin-email" value="admin@lumiere-studio.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Business Hours</label>
+                            <input type="text" class="form-control" id="business-hours" value="Mon-Fri: 9AM-6PM, Sat: 10AM-4PM">
+                        </div>
+                        
+                        <h4>Live Chat Settings</h4>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" id="auto-reply-toggle" checked>
+                                <label for="auto-reply-toggle">Enable Auto-Reply when offline</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Auto-Reply Message</label>
+                            <textarea class="form-control" id="auto-reply-message" rows="3">Thank you for contacting Lumière Studio. Our team is currently offline. We'll get back to you within 24 hours.</textarea>
+                        </div>
+                        
+                        <h4>Notification Preferences</h4>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" id="email-notifications" checked>
+                                <label for="email-notifications">Email notifications for new bookings</label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="checkbox" id="chat-notifications" checked>
+                                <label for="chat-notifications">Desktop notifications for new chat messages</label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary" id="save-settings-btn">Save Changes</button>
+                        <button class="btn-outline" id="reset-settings-btn">Reset to Default</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Booking Modal -->
+    <div class="modal" id="add-booking-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Booking</h3>
+                <button class="modal-close" id="add-booking-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-booking-form">
+                    <div class="form-group">
+                        <label class="form-label">Client Name</label>
+                        <input type="text" class="form-control" id="new-client-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Client Email</label>
+                        <input type="email" class="form-control" id="new-client-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Client Phone</label>
+                        <input type="tel" class="form-control" id="new-client-phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Package</label>
+                        <select class="form-control" id="new-booking-package" required>
+                            <option value="Basic">Basic - $499</option>
+                            <option value="Professional" selected>Professional - $899</option>
+                            <option value="Cinematic">Cinematic - $1,499</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Event Date</label>
+                        <input type="date" class="form-control" id="new-event-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select class="form-control" id="new-booking-status" required>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="done">Done</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn-primary">Add Booking</button>
+                        <button type="button" class="btn-outline" id="cancel-add-booking">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Admin Dashboard System - Simplified Version
+        class AdminDashboardSystem {
+            constructor() {
+                this.checkAuthentication();
+                this.initializeAdminElements();
+                this.setupAdminEventListeners();
+                this.loadDashboardData();
+                this.initializeAdminChat();
+                this.loadBookings();
+                this.loadSettings();
+            }
+
+            checkAuthentication() {
+                const isAdminLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';
+                
+                if (!isAdminLoggedIn) {
+                    window.location.href = 'index.html';
+                    return;
+                }
+            }
+
+            initializeAdminElements() {
+                // Dashboard Elements
+                this.dashboardSidebar = document.getElementById('dashboard-sidebar');
+                this.adminMobileMenuBtn = document.getElementById('admin-mobile-menu-btn');
+                this.navItems = document.querySelectorAll('.nav-item');
+                this.dashboardSections = document.querySelectorAll('.dashboard-section');
+                this.dashboardTitle = document.getElementById('dashboard-title');
+                this.logoutBtn = document.getElementById('logout-btn');
+                
+                // Stats Elements
+                this.totalBookingsEl = document.getElementById('total-bookings');
+                this.activeChatsEl = document.getElementById('active-chats');
+                this.onlineUsersEl = document.getElementById('online-users');
+                this.totalRevenueEl = document.getElementById('total-revenue');
+                
+                // Booking Elements
+                this.recentBookingsBody = document.getElementById('recent-bookings-body');
+                this.allBookingsBody = document.getElementById('all-bookings-body');
+                this.addBookingBtn = document.getElementById('add-booking-btn');
+                this.addBookingModal = document.getElementById('add-booking-modal');
+                this.addBookingClose = document.getElementById('add-booking-close');
+                this.cancelAddBooking = document.getElementById('cancel-add-booking');
+                this.addBookingForm = document.getElementById('add-booking-form');
+                
+                // Chat Elements
+                this.adminChatStatus = document.getElementById('admin-chat-status');
+                this.onlineUsersCount = document.getElementById('online-users-count');
+                this.toggleOnlineStatusBtn = document.getElementById('toggle-online-status');
+                this.userListBody = document.getElementById('user-list-body');
+                this.adminChatMessages = document.getElementById('admin-chat-messages');
+                this.adminMessageInput = document.getElementById('admin-message-input');
+                this.adminSendMessage = document.getElementById('admin-send-message');
+                this.adminChatInput = document.getElementById('admin-chat-input');
+                this.currentUserAvatar = document.getElementById('current-user-avatar');
+                this.currentUserName = document.getElementById('current-user-name');
+                this.currentUserStatus = document.getElementById('current-user-status');
+                
+                // Settings Elements
+                this.saveSettingsBtn = document.getElementById('save-settings-btn');
+                this.resetSettingsBtn = document.getElementById('reset-settings-btn');
+                this.autoReplyToggle = document.getElementById('auto-reply-toggle');
+                this.autoReplyMessage = document.getElementById('auto-reply-message');
+                
+                // State
+                this.isAdminOnline = localStorage.getItem('adminOnlineStatus') === 'true' || true;
+                this.currentChatUser = null;
+                this.allUsers = [];
+                this.bookings = [];
+                this.filter = 'all';
+                
+                // Set admin online by default
+                localStorage.setItem('adminOnlineStatus', 'true');
+            }
+
+            setupAdminEventListeners() {
+                // Mobile menu toggle
+                this.adminMobileMenuBtn.addEventListener('click', () => this.toggleAdminMobileMenu());
+                
+                // Navigation
+                this.navItems.forEach(item => {
+                    item.addEventListener('click', (e) => this.handleNavigation(e, item));
+                });
+                
+                // Logout
+                this.logoutBtn.addEventListener('click', () => this.handleLogout());
+                
+                // Online status toggle
+                this.toggleOnlineStatusBtn.addEventListener('click', () => this.toggleOnlineStatus());
+                
+                // Booking filters
+                document.getElementById('filter-pending')?.addEventListener('click', () => this.filterBookings('pending'));
+                document.getElementById('filter-confirmed')?.addEventListener('click', () => this.filterBookings('confirmed'));
+                document.getElementById('filter-all')?.addEventListener('click', () => this.filterBookings('all'));
+                
+                // Add booking
+                this.addBookingBtn?.addEventListener('click', () => this.showAddBookingModal());
+                this.addBookingClose?.addEventListener('click', () => this.hideAddBookingModal());
+                this.cancelAddBooking?.addEventListener('click', () => this.hideAddBookingModal());
+                this.addBookingForm?.addEventListener('submit', (e) => this.handleAddBooking(e));
+                
+                // Admin chat
+                this.adminSendMessage?.addEventListener('click', () => this.sendAdminMessage());
+                this.adminMessageInput?.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.sendAdminMessage();
+                    }
+                });
+                
+                // Settings
+                this.saveSettingsBtn?.addEventListener('click', () => this.saveSettings());
+                this.resetSettingsBtn?.addEventListener('click', () => this.resetSettings());
+                
+                // Close modals when clicking outside
+                this.addBookingModal?.addEventListener('click', (e) => {
+                    if (e.target === this.addBookingModal) {
+                        this.hideAddBookingModal();
+                    }
+                });
+                
+                // Set minimum date for new booking to today
+                const today = new Date().toISOString().split('T')[0];
+                if (document.getElementById('new-event-date')) {
+                    document.getElementById('new-event-date').min = today;
+                }
+            }
+
+            loadDashboardData() {
+                // Load bookings from localStorage
+                this.bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+                
+                // Add sample data if empty
+                if (this.bookings.length === 0) {
+                    this.bookings = this.generateSampleBookings();
+                    localStorage.setItem('bookings', JSON.stringify(this.bookings));
+                }
+                
+                // Calculate stats
+                this.updateStats();
+                
+                // Load recent bookings
+                this.loadRecentBookings();
+                
+                // Set initial online status
+                this.updateOnlineStatusUI();
+            }
+
+            generateSampleBookings() {
+                return [
+                    {
+                        id: 1,
+                        clientName: 'Sarah Johnson',
+                        clientEmail: 'sarah@example.com',
+                        clientPhone: '(123) 456-7890',
+                        package: 'Professional - $899',
+                        price: '$899',
+                        eventType: 'Wedding Photography',
+                        eventDate: '2023-10-15',
+                        status: 'confirmed',
+                        timestamp: new Date().toISOString()
+                    },
+                    {
+                        id: 2,
+                        clientName: 'Michael Chen',
+                        clientEmail: 'michael@example.com',
+                        clientPhone: '(123) 456-7891',
+                        package: 'Basic - $499',
+                        price: '$499',
+                        eventType: 'Portrait Session',
+                        eventDate: '2023-10-20',
+                        status: 'pending',
+                        timestamp: new Date().toISOString()
+                    },
+                    {
+                        id: 3,
+                        clientName: 'Jessica Williams',
+                        clientEmail: 'jessica@example.com',
+                        clientPhone: '(123) 456-7892',
+                        package: 'Cinematic - $1,499',
+                        price: '$1,499',
+                        eventType: 'Cinematic Video',
+                        eventDate: '2023-10-25',
+                        status: 'done',
+                        timestamp: new Date().toISOString()
+                    }
+                ];
+            }
+
+            updateStats() {
+                // Calculate total bookings
+                const totalBookings = this.bookings.length;
+                this.totalBookingsEl.textContent = totalBookings;
+                
+                // Calculate active chats (users with unread messages)
+                const adminInbox = JSON.parse(localStorage.getItem('adminInbox')) || [];
+                const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+                const uniqueUsers = [...new Set(adminInbox.map(msg => msg.userId))];
+                this.activeChatsEl.textContent = uniqueUsers.length;
+                
+                // Calculate online users (simulated)
+                const onlineUsers = Math.floor(Math.random() * 50) + 100; // 100-150 users
+                this.onlineUsersEl.textContent = onlineUsers;
+                this.onlineUsersCount.textContent = onlineUsers;
+                
+                // Calculate total revenue
+                let totalRevenue = 0;
+                this.bookings.forEach(booking => {
+                    const price = parseInt(booking.price.replace('$', '').replace(',', ''));
+                    if (!isNaN(price)) {
+                        totalRevenue += price;
+                    }
+                });
+                this.totalRevenueEl.textContent = '$' + totalRevenue.toLocaleString();
+            }
+
+            loadRecentBookings() {
+                // Get recent bookings (last 5)
+                const recentBookings = this.bookings.slice(-5).reverse();
+                
+                // Clear table
+                this.recentBookingsBody.innerHTML = '';
+                
+                // Add bookings to table
+                recentBookings.forEach(booking => {
+                    const row = document.createElement('tr');
+                    
+                    // Format date
+                    const date = new Date(booking.eventDate);
+                    const formattedDate = date.toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+                    
+                    // Status badge
+                    let statusClass = '';
+                    let statusText = '';
+                    
+                    switch(booking.status) {
+                        case 'pending':
+                            statusClass = 'pending';
+                            statusText = 'Pending';
+                            break;
+                        case 'confirmed':
+                            statusClass = 'confirmed';
+                            statusText = 'Confirmed';
+                            break;
+                        case 'done':
+                            statusClass = 'done';
+                            statusText = 'Done';
+                            break;
+                        default:
+                            statusClass = 'pending';
+                            statusText = 'Pending';
+                    }
+                    
+                    row.innerHTML = `
+                        <td>${booking.clientName}</td>
+                        <td>${booking.eventType}</td>
+                        <td>${formattedDate}</td>
+                        <td><span class="status ${statusClass}">${statusText}</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon" onclick="adminSystem.viewBooking('${booking.id}')"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="adminSystem.editBooking('${booking.id}')"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    this.recentBookingsBody.appendChild(row);
+                });
+                
+                // If no bookings, show message
+                if (recentBookings.length === 0) {
+                    this.recentBookingsBody.innerHTML = `
+                        <tr>
+                            <td colspan="5" class="text-center">No bookings found</td>
+                        </tr>
+                    `;
+                }
+            }
+
+            loadBookings() {
+                // Filter bookings based on current filter
+                let filteredBookings = this.bookings;
+                
+                if (this.filter !== 'all') {
+                    filteredBookings = this.bookings.filter(booking => booking.status === this.filter);
+                }
+                
+                // Reverse to show newest first
+                filteredBookings = filteredBookings.slice().reverse();
+                
+                // Clear table
+                this.allBookingsBody.innerHTML = '';
+                
+                // Add bookings to table
+                filteredBookings.forEach(booking => {
+                    const row = document.createElement('tr');
+                    
+                    // Format date
+                    const date = new Date(booking.eventDate);
+                    const formattedDate = date.toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+                    
+                    // Status badge
+                    let statusClass = '';
+                    let statusText = '';
+                    
+                    switch(booking.status) {
+                        case 'pending':
+                            statusClass = 'pending';
+                            statusText = 'Pending';
+                            break;
+                        case 'confirmed':
+                            statusClass = 'confirmed';
+                            statusText = 'Confirmed';
+                            break;
+                        case 'done':
+                            statusClass = 'done';
+                            statusText = 'Done';
+                            break;
+                        default:
+                            statusClass = 'pending';
+                            statusText = 'Pending';
+                    }
+                    
+                    row.innerHTML = `
+                        <td>${booking.clientName}</td>
+                        <td>${booking.package}</td>
+                        <td>${formattedDate}</td>
+                        <td>${booking.price}</td>
+                        <td><span class="status ${statusClass}">${statusText}</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon" onclick="adminSystem.viewBooking('${booking.id}')"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="adminSystem.editBooking('${booking.id}')"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" onclick="adminSystem.deleteBooking('${booking.id}')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    this.allBookingsBody.appendChild(row);
+                });
+                
+                // If no bookings, show message
+                if (filteredBookings.length === 0) {
+                    this.allBookingsBody.innerHTML = `
+                        <tr>
+                            <td colspan="6" class="text-center">No ${this.filter !== 'all' ? this.filter : ''} bookings found</td>
+                        </tr>
+                    `;
+                }
+            }
+
+            filterBookings(filter) {
+                this.filter = filter;
+                this.loadBookings();
+                
+                // Update active filter button
+                document.querySelectorAll('#section-bookings .btn-outline').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                document.getElementById(`filter-${filter}`)?.classList.add('active');
+            }
+
+            initializeAdminChat() {
+                // Load users from chat history
+                this.loadUsers();
+                
+                // Update online status UI
+                this.updateOnlineStatusUI();
+            }
+
+            loadUsers() {
+                // Get chat history
+                const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+                const adminInbox = JSON.parse(localStorage.getItem('adminInbox')) || [];
+                
+                // Combine both sources
+                const allMessages = [...chatHistory, ...adminInbox];
+                
+                // Group messages by user
+                const usersMap = new Map();
+                
+                allMessages.forEach(message => {
+                    const userId = message.userId || 'guest';
+                    const userName = message.userName || 'Guest User';
+                    
+                    if (!usersMap.has(userId)) {
+                        usersMap.set(userId, {
+                            id: userId,
+                            name: userName,
+                            isGuest: true,
+                            messages: [],
+                            unreadCount: 0,
+                            lastMessageTime: message.timestamp || new Date().toISOString()
+                        });
+                    }
+                    
+                    const user = usersMap.get(userId);
+                    user.messages.push(message);
+                    
+                    // Update last message time
+                    if (message.timestamp && new Date(message.timestamp) > new Date(user.lastMessageTime)) {
+                        user.lastMessageTime = message.timestamp;
+                    }
+                });
+                
+                // Convert to array and sort by last message time (newest first)
+                this.allUsers = Array.from(usersMap.values()).sort((a, b) => {
+                    return new Date(b.lastMessageTime) - new Date(a.lastMessageTime);
+                });
+                
+                // Add sample user if empty
+                if (this.allUsers.length === 0) {
+                    this.allUsers = [{
+                        id: 'guest_1',
+                        name: 'John Doe',
+                        isGuest: true,
+                        messages: [{
+                            id: 'msg_1',
+                            sender: 'user',
+                            message: 'Hello, I am interested in your wedding photography package.',
+                            timestamp: new Date(Date.now() - 3600000).toISOString()
+                        }],
+                        unreadCount: 1,
+                        lastMessageTime: new Date(Date.now() - 3600000).toISOString()
+                    }];
+                }
+                
+                this.renderUserList();
+            }
+
+            renderUserList() {
+                // Clear user list
+                this.userListBody.innerHTML = '';
+                
+                // Add users to list
+                this.allUsers.forEach(user => {
+                    const userElement = document.createElement('div');
+                    userElement.classList.add('user-item');
+                    userElement.setAttribute('data-user-id', user.id);
+                    
+                    // Get initials for avatar
+                    const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+                    
+                    // Format last message time
+                    const lastActive = new Date(user.lastMessageTime);
+                    const now = new Date();
+                    const diffHours = Math.floor((now - lastActive) / (1000 * 60 * 60));
+                    
+                    let timeText = '';
+                    if (diffHours < 1) {
+                        timeText = 'Just now';
+                    } else if (diffHours < 24) {
+                        timeText = `${diffHours} hours ago`;
+                    } else {
+                        timeText = `${Math.floor(diffHours / 24)} days ago`;
+                    }
+                    
+                    userElement.innerHTML = `
+                        <div class="user-avatar">${initials}</div>
+                        <div class="user-info">
+                            <div class="user-name">${user.name}</div>
+                            <div class="user-status">
+                                <span class="online-dot"></span>
+                                <span>${user.isGuest ? 'Guest' : 'Registered'} • ${timeText}</span>
+                            </div>
+                        </div>
+                        ${user.unreadCount > 0 ? `<span class="notification-badge">${user.unreadCount}</span>` : ''}
+                    `;
+                    
+                    // Add click event
+                    userElement.addEventListener('click', () => this.selectUser(user));
+                    
+                    this.userListBody.appendChild(userElement);
+                });
+            }
+
+            selectUser(user) {
+                this.currentChatUser = user;
+                
+                // Update UI
+                this.currentUserAvatar.textContent = user.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+                this.currentUserName.textContent = user.name;
+                this.currentUserStatus.textContent = user.isGuest ? 'Guest User' : 'Registered User';
+                
+                // Show chat input
+                this.adminChatInput.style.display = 'flex';
+                this.adminMessageInput.focus();
+                
+                // Load messages for this user
+                this.loadUserMessages();
+            }
+
+            loadUserMessages() {
+                if (!this.currentChatUser) return;
+                
+                // Clear messages
+                this.adminChatMessages.innerHTML = '';
+                
+                // Get messages for this user
+                const userMessages = this.currentChatUser.messages.sort((a, b) => {
+                    return new Date(a.timestamp) - new Date(b.timestamp);
+                });
+                
+                // Display messages
+                userMessages.forEach(message => {
+                    const messageElement = document.createElement('div');
+                    messageElement.classList.add(message.sender === 'user' ? 'user-message' : 'admin-message');
+                    
+                    const time = new Date(message.timestamp);
+                    const timeString = time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    
+                    messageElement.innerHTML = `
+                        <div class="message-sender">${message.sender === 'user' ? this.currentChatUser.name : 'You'}</div>
+                        <div class="message-text">${message.message}</div>
+                        <div class="message-time">${timeString}</div>
+                    `;
+                    
+                    this.adminChatMessages.appendChild(messageElement);
+                });
+                
+                // Scroll to bottom
+                setTimeout(() => {
+                    this.adminChatMessages.scrollTop = this.adminChatMessages.scrollHeight;
+                }, 100);
+            }
+
+            sendAdminMessage() {
+                if (!this.currentChatUser || !this.adminMessageInput.value.trim()) return;
+                
+                const messageText = this.adminMessageInput.value.trim();
+                
+                // Create message object
+                const message = {
+                    id: 'admin_msg_' + Date.now(),
+                    sender: 'admin',
+                    message: messageText,
+                    timestamp: new Date().toISOString(),
+                    userId: this.currentChatUser.id,
+                    userName: this.currentChatUser.name
+                };
+                
+                // Add to user's messages
+                this.currentChatUser.messages.push(message);
+                
+                // Also add to chat history
+                let chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+                chatHistory.push(message);
+                localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+                
+                // Clear input
+                this.adminMessageInput.value = '';
+                
+                // Reload messages
+                this.loadUserMessages();
+                
+                // Update user list
+                this.loadUsers();
+            }
+
+            toggleOnlineStatus() {
+                this.isAdminOnline = !this.isAdminOnline;
+                
+                // Save to localStorage
+                localStorage.setItem('adminOnlineStatus', this.isAdminOnline.toString());
+                
+                // Update UI
+                this.updateOnlineStatusUI();
+            }
+
+            updateOnlineStatusUI() {
+                if (this.isAdminOnline) {
+                    this.adminChatStatus.className = 'online-indicator';
+                    this.toggleOnlineStatusBtn.textContent = 'Go Offline';
+                    this.toggleOnlineStatusBtn.classList.remove('btn-outline');
+                    this.toggleOnlineStatusBtn.classList.add('btn-primary');
+                } else {
+                    this.adminChatStatus.className = 'offline-indicator';
+                    this.toggleOnlineStatusBtn.textContent = 'Go Online';
+                    this.toggleOnlineStatusBtn.classList.remove('btn-primary');
+                    this.toggleOnlineStatusBtn.classList.add('btn-outline');
+                }
+            }
+
+            toggleAdminMobileMenu() {
+                this.dashboardSidebar.classList.toggle('active');
+            }
+
+            handleNavigation(e, item) {
+                e.preventDefault();
+                
+                // Remove active class from all nav items
+                this.navItems.forEach(navItem => navItem.classList.remove('active'));
+                
+                // Add active class to clicked item
+                item.classList.add('active');
+                
+                // Get section to show
+                const section = item.getAttribute('data-section');
+                
+                // Hide all sections
+                this.dashboardSections.forEach(sec => sec.classList.remove('active'));
+                
+                // Show selected section
+                document.getElementById(`section-${section}`).classList.add('active');
+                
+                // Update dashboard title
+                const titleText = item.querySelector('span').textContent;
+                this.dashboardTitle.textContent = titleText;
+                
+                // Close sidebar on mobile
+                if (window.innerWidth <= 768) {
+                    this.dashboardSidebar.classList.remove('active');
+                }
+            }
+
+            handleLogout() {
+                // Clear admin login status
+                localStorage.setItem('isAdminLoggedIn', 'false');
+                
+                // Set admin offline
+                localStorage.setItem('adminOnlineStatus', 'false');
+                
+                // Redirect to main page
+                window.location.href = 'index.html';
+            }
+
+            showAddBookingModal() {
+                this.addBookingModal.classList.add('active');
+            }
+
+            hideAddBookingModal() {
+                this.addBookingModal.classList.remove('active');
+                this.addBookingForm.reset();
+            }
+
+            handleAddBooking(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const clientName = document.getElementById('new-client-name').value;
+                const clientEmail = document.getElementById('new-client-email').value;
+                const clientPhone = document.getElementById('new-client-phone').value;
+                const packageText = document.getElementById('new-booking-package').value;
+                const eventDate = document.getElementById('new-event-date').value;
+                const status = document.getElementById('new-booking-status').value;
+                
+                // Extract price from package text
+                let price = '$0';
+                if (packageText.includes('Basic')) price = '$499';
+                if (packageText.includes('Professional')) price = '$899';
+                if (packageText.includes('Cinematic')) price = '$1,499';
+                
+                // Create booking object
+                const booking = {
+                    id: Date.now(),
+                    clientName,
+                    clientEmail,
+                    clientPhone,
+                    package: packageText,
+                    price,
+                    eventType: packageText.split(' - ')[0],
+                    eventDate,
+                    status,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Add to bookings array
+                this.bookings.push(booking);
+                
+                // Save to localStorage
+                localStorage.setItem('bookings', JSON.stringify(this.bookings));
+                
+                // Hide modal and reset form
+                this.hideAddBookingModal();
+                
+                // Reload bookings
+                this.loadBookings();
+                this.loadRecentBookings();
+                this.updateStats();
+                
+                // Show success message
+                alert('Booking added successfully!');
+            }
+
+            viewBooking(bookingId) {
+                const booking = this.bookings.find(b => b.id == bookingId);
+                
+                if (booking) {
+                    let message = `Booking Details:\n\n`;
+                    message += `Client: ${booking.clientName}\n`;
+                    message += `Email: ${booking.clientEmail}\n`;
+                    message += `Phone: ${booking.clientPhone}\n`;
+                    message += `Package: ${booking.package}\n`;
+                    message += `Event Type: ${booking.eventType}\n`;
+                    message += `Date: ${new Date(booking.eventDate).toLocaleDateString()}\n`;
+                    message += `Status: ${booking.status}\n`;
+                    message += `Booked on: ${new Date(booking.timestamp).toLocaleString()}`;
+                    
+                    alert(message);
+                }
+            }
+
+            editBooking(bookingId) {
+                const booking = this.bookings.find(b => b.id == bookingId);
+                
+                if (booking) {
+                    const newStatus = prompt('Change booking status (pending/confirmed/done):', booking.status);
+                    
+                    if (newStatus && ['pending', 'confirmed', 'done'].includes(newStatus)) {
+                        booking.status = newStatus;
+                        
+                        // Save to localStorage
+                        localStorage.setItem('bookings', JSON.stringify(this.bookings));
+                        
+                        // Reload bookings
+                        this.loadBookings();
+                        this.loadRecentBookings();
+                        
+                        alert('Booking status updated!');
+                    }
+                }
+            }
+
+            deleteBooking(bookingId) {
+                if (confirm('Are you sure you want to delete this booking?')) {
+                    // Remove booking from array
+                    this.bookings = this.bookings.filter(b => b.id != bookingId);
+                    
+                    // Save to localStorage
+                    localStorage.setItem('bookings', JSON.stringify(this.bookings));
+                    
+                    // Reload bookings
+                    this.loadBookings();
+                    this.loadRecentBookings();
+                    this.updateStats();
+                    
+                    alert('Booking deleted!');
+                }
+            }
+
+            loadSettings() {
+                // Load settings from localStorage
+                const settings = JSON.parse(localStorage.getItem('adminSettings')) || {};
+                
+                // Apply settings to form
+                if (settings.adminName) {
+                    document.getElementById('admin-full-name').value = settings.adminName;
+                }
+                
+                if (settings.adminEmail) {
+                    document.getElementById('admin-email').value = settings.adminEmail;
+                }
+                
+                if (settings.businessHours) {
+                    document.getElementById('business-hours').value = settings.businessHours;
+                }
+                
+                if (settings.autoReplyEnabled !== undefined) {
+                    this.autoReplyToggle.checked = settings.autoReplyEnabled;
+                }
+                
+                if (settings.autoReplyMessage) {
+                    this.autoReplyMessage.value = settings.autoReplyMessage;
+                }
+                
+                if (settings.emailNotifications !== undefined) {
+                    document.getElementById('email-notifications').checked = settings.emailNotifications;
+                }
+                
+                if (settings.chatNotifications !== undefined) {
+                    document.getElementById('chat-notifications').checked = settings.chatNotifications;
+                }
+            }
+
+            saveSettings() {
+                // Get values from form
+                const settings = {
+                    adminName: document.getElementById('admin-full-name').value,
+                    adminEmail: document.getElementById('admin-email').value,
+                    businessHours: document.getElementById('business-hours').value,
+                    autoReplyEnabled: this.autoReplyToggle.checked,
+                    autoReplyMessage: this.autoReplyMessage.value,
+                    emailNotifications: document.getElementById('email-notifications').checked,
+                    chatNotifications: document.getElementById('chat-notifications').checked,
+                    savedAt: new Date().toISOString()
+                };
+                
+                // Save to localStorage
+                localStorage.setItem('adminSettings', JSON.stringify(settings));
+                
+                alert('Settings saved successfully!');
+            }
+
+            resetSettings() {
+                if (confirm('Are you sure you want to reset all settings to default?')) {
+                    // Clear settings
+                    localStorage.removeItem('adminSettings');
+                    
+                    // Reload settings
+                    this.loadSettings();
+                    
+                    alert('Settings reset to default!');
+                }
+            }
+        }
+
+        // Initialize admin dashboard when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            window.adminSystem = new AdminDashboardSystem();
+        });
+    </script>
+</body>
+</html>
